@@ -8,8 +8,6 @@ CREATE TABLE users (
     role ENUM('admin', 'client') NOT NULL DEFAULT 'client',
     is_active BOOLEAN NOT NULL DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    deleted_at TIMESTAMP NULL
 );
 CREATE TABLE products (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -40,3 +38,18 @@ CREATE TABLE order_product (
     FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
 );
+
+-- /ecommerce
+--   /app
+--     /Controllers
+--     /Models
+--     /Views
+--   /config
+--     connect.php         
+--   /public
+--     /css
+--     /js
+--     /images
+--   /index.php            
+--   .gitignore
+
