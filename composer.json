@@ -1,0 +1,17 @@
+{
+    "name": "vendor-name/package-name",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "VendorName\\PackageName\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rida Sersif",
+            "email": "ridasersif1@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}

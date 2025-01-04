@@ -12,7 +12,6 @@ class Client extends User {
         $this->isActive = $isActive;
     }
 
-   
     public function browseProducts() {
       
         echo "Browsing products...";

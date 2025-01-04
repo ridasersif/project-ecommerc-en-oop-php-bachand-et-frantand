@@ -22,3 +22,4 @@ class Database {
 $db = new Database();
 $pdo = $db->connect();
 ?>
+  

@@ -1,5 +1,7 @@
 <?php
+ session_start();
 require_once(__DIR__ . '/../config/connect.php');
+
 
 class User {
    
@@ -31,7 +33,7 @@ class User {
             throw new Exception("Invalid email format.");
         }
     
-     
+        
         if (strlen($this->password) < 8) {
             throw new Exception("Password must be at least 8 characters long.");
         }
@@ -109,28 +111,26 @@ class User {
         }
     
       
-        session_start();
+       
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['role'] = $user['role'];
-    
-        return true; 
+
+        if ($user['role'] == 'client') {
+            header('Location: ../public/Client.php');
+            exit();
+        } else {
+            header('Location: ../public/Admin.php');
+            exit();
+        }
+        // return true; 
     }
     public function logout() {
-      
         session_start();
-     
         session_unset();  
         session_destroy();  
-    
         header("Location: /login.php");
         exit();
     }
-    
-    
-    
- 
-
-
 }
 
-?>
+
