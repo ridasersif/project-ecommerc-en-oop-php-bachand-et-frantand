@@ -6,7 +6,7 @@ class ProductManager{
         
         $db = new Database();
         $conn = $db->connect();
-        $stmt = $conn->prepare("SELECT * FROM products ");
+        $stmt = $conn->prepare("SELECT * FROM products WHERE deleted_at IS NULL ");
         $stmt->execute();
         $products = $stmt -> fetchAll();
         $data=[];
@@ -20,11 +20,12 @@ class ProductManager{
         
         $db = new Database();
         $conn = $db->connect();
-        $stmt= $conn->prepare("DELETE FROM products WHERE id = :id");
+        $stmt= $conn->prepare("UPDATE products SET deleted_at = NOW() WHERE id = :id");
         $stmt->execute([
             ':id'=>$id
         ]);
     }
+
     public function getProduct($id){
         
         $db = new Database();
