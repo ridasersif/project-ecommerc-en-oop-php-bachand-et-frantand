@@ -1,5 +1,5 @@
 <?php
- session_start();
+
 require_once(__DIR__ . '/../config/connect.php');
 
 
@@ -22,6 +22,7 @@ class User {
     protected function hashPassword($password) {
         return password_hash($password, PASSWORD_BCRYPT);
     }
+
     public function validation() {
      
         if (empty($this->name) || empty($this->email) || empty($this->password)) {
@@ -54,6 +55,7 @@ class User {
             throw new Exception("Password must contain at least one special character (e.g., !@#$%^&*).");
         }
     }
+
     public function signUp() {
         
         $this->validation();
@@ -111,7 +113,7 @@ class User {
         }
     
       
-       
+        session_start();
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['role'] = $user['role'];
 
