@@ -52,12 +52,11 @@ class Product {
         $this->quantity=$quantity;
         $this->image_path=$image_path;
     }
-
     public function rendreRow()
     {
         return "<tr>
                     <td>$this->id</td>
-                    <td><img src='$this->image_path' alt='$this->name' style='width: 50px; height: auto;'></td>
+                    <td><img src='$this->image_path' style='width: 50px; height: auto;'></td>
                     <td>$this->name</td>
                     <td>$this->description</td>
                     <td>$this->price</td>
