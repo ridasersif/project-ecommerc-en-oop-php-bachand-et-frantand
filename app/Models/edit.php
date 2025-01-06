@@ -23,7 +23,7 @@ if (isset($_POST['btnSubmit'])) {
         $product->setQuantity((int)$_POST['quantity']);
 
         $productManager->update($product);
-        header('Location: ../public/Product.php');
+        header('Location:../public/dashbourdeProduct.php');
         exit();
     } else {
         echo "Veuillez remplir tous les champs correctement.";
